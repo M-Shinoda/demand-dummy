@@ -174,3 +174,17 @@ def generate_dates_for_one_year(start_date_str):
         )  # "YYYY-MM-DD"形式でリストに追加
 
     return dates
+
+
+def get_dates(start_date_str, end_date_str):
+    start_date = datetime.strptime(start_date_str, "%Y-%m-%d")
+    end_date = datetime.strptime(end_date_str, "%Y-%m-%d")
+
+    # 日付リストを作成
+    date_list = []
+    current_date = start_date
+    while current_date <= end_date:
+        date_list.append(current_date.strftime("%Y-%m-%d"))
+        current_date += timedelta(days=1)
+
+    return date_list
