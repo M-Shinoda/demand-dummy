@@ -1,0 +1,245 @@
+{
+    "parkingLotId": "cd21f5dbd518257d4781a40b1a7e05dffe77c0f0f7d96a53ee8ec48d52540a18",
+    "parkingLotName": "中央駐車場",
+    "address": "香川県高松市番町一丁目11番地22号",
+    "logitude": 134.0352945931319,
+    "latitude": 34.3438923388437,
+    "capacity": 321,
+    "category": "both",
+    "openTime": "07:30:00",
+    "closeTime": "22:00:00",
+    "pricingModel": [
+        {
+            "type": "holiday",
+            "start": "07:30:00",
+            "end": "18:00:00",
+            "intervalMin": 25,
+            "additionalPrice": 100,
+            "fixedPrice": 1200,
+            "description": "最大料金 土日祝 7:30～18:00 ¥1200"
+        },
+        {
+            "type": "holiday",
+            "start": "18:00:00",
+            "end": "08:00:00",
+            "intervalMin": 25,
+            "additionalPrice": 100,
+            "fixedPrice": 800,
+            "description": "最大料金 全日 18:00～翌8:00 ¥800"
+        },
+        {
+            "type": "weekday",
+            "start": "07:30:00",
+            "end": "18:00:00",
+            "intervalMin": 25,
+            "additionalPrice": 100,
+            "fixedPrice": null,
+            "description": "25分毎¥100"
+        },
+        {
+            "type": "weekday",
+            "start": "18:00:00",
+            "end": "08:00:00",
+            "intervalMin": 25,
+            "additionalPrice": 100,
+            "fixedPrice": 800,
+            "description": "最大料金 全日 18:00～翌8:00 ¥800"
+        }
+    ],
+    "averageUsageRateWeekday": [
+        {
+            "time": "00:00:00",
+            "rate": 3
+        },
+        {
+            "time": "01:00:00",
+            "rate": 3
+        },
+        {
+            "time": "02:00:00",
+            "rate": 3
+        },
+        {
+            "time": "03:00:00",
+            "rate": 3
+        },
+        {
+            "time": "04:00:00",
+            "rate": 3
+        },
+        {
+            "time": "05:00:00",
+            "rate": 3
+        },
+        {
+            "time": "06:00:00",
+            "rate": 3
+        },
+        {
+            "time": "07:00:00",
+            "rate": 8
+        },
+        {
+            "time": "08:00:00",
+            "rate": 11
+        },
+        {
+            "time": "09:00:00",
+            "rate": 16
+        },
+        {
+            "time": "10:00:00",
+            "rate": 23
+        },
+        {
+            "time": "11:00:00",
+            "rate": 34
+        },
+        {
+            "time": "12:00:00",
+            "rate": 48
+        },
+        {
+            "time": "13:00:00",
+            "rate": 68
+        },
+        {
+            "time": "14:00:00",
+            "rate": 76
+        },
+        {
+            "time": "15:00:00",
+            "rate": 57
+        },
+        {
+            "time": "16:00:00",
+            "rate": 37
+        },
+        {
+            "time": "17:00:00",
+            "rate": 24
+        },
+        {
+            "time": "18:00:00",
+            "rate": 16
+        },
+        {
+            "time": "19:00:00",
+            "rate": 10
+        },
+        {
+            "time": "20:00:00",
+            "rate": 7
+        },
+        {
+            "time": "21:00:00",
+            "rate": 4
+        },
+        {
+            "time": "22:00:00",
+            "rate": 3
+        },
+        {
+            "time": "23:00:00",
+            "rate": 3
+        }
+    ],
+    "averageUsageRateHoliday": [
+        {
+            "time": "00:00:00",
+            "rate": 3
+        },
+        {
+            "time": "01:00:00",
+            "rate": 3
+        },
+        {
+            "time": "02:00:00",
+            "rate": 3
+        },
+        {
+            "time": "03:00:00",
+            "rate": 3
+        },
+        {
+            "time": "04:00:00",
+            "rate": 3
+        },
+        {
+            "time": "05:00:00",
+            "rate": 3
+        },
+        {
+            "time": "06:00:00",
+            "rate": 3
+        },
+        {
+            "time": "07:00:00",
+            "rate": 2
+        },
+        {
+            "time": "08:00:00",
+            "rate": 3
+        },
+        {
+            "time": "09:00:00",
+            "rate": 4
+        },
+        {
+            "time": "10:00:00",
+            "rate": 6
+        },
+        {
+            "time": "11:00:00",
+            "rate": 9
+        },
+        {
+            "time": "12:00:00",
+            "rate": 13
+        },
+        {
+            "time": "13:00:00",
+            "rate": 19
+        },
+        {
+            "time": "14:00:00",
+            "rate": 21
+        },
+        {
+            "time": "15:00:00",
+            "rate": 15
+        },
+        {
+            "time": "16:00:00",
+            "rate": 10
+        },
+        {
+            "time": "17:00:00",
+            "rate": 7
+        },
+        {
+            "time": "18:00:00",
+            "rate": 4
+        },
+        {
+            "time": "19:00:00",
+            "rate": 3
+        },
+        {
+            "time": "20:00:00",
+            "rate": 2
+        },
+        {
+            "time": "21:00:00",
+            "rate": 1
+        },
+        {
+            "time": "22:00:00",
+            "rate": 3
+        },
+        {
+            "time": "23:00:00",
+            "rate": 3
+        }
+    ]
+}
