@@ -18,7 +18,7 @@ from util import (
 
 
 category_by_usage_average_hour = {"working": 1, "entertainment": 3, "both": 2}
-category_usage_average_min_sigma = 45
+category_usage_average_min_sigma = 15
 
 
 def generate_parking_records(parking_name, date_str):
