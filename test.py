@@ -78,6 +78,46 @@ class UsageFeeTest(unittest.TestCase):
         result = unit_price(self.parking_name, entry_time, exit_time)
         self.assertEqual(result, 1200)
 
+    def test_years_end(self):
+        record = {
+            "entryTime": "2023-12-31T21:06:00+09:00",
+            "exitTime": "2024-01-02T09:44:00+09:00",
+        }
+        entry_time = datetime.fromisoformat(record["entryTime"])
+        exit_time = datetime.fromisoformat(record["exitTime"])
+        result = unit_price(self.parking_name, entry_time, exit_time)
+        self.assertEqual(result, 4500)
+
+    def test_years_end2(self):
+        record = {
+            "entryTime": "2024-01-01T21:06:00+09:00",
+            "exitTime": "2024-01-02T09:44:00+09:00",
+        }
+        entry_time = datetime.fromisoformat(record["entryTime"])
+        exit_time = datetime.fromisoformat(record["exitTime"])
+        result = unit_price(self.parking_name, entry_time, exit_time)
+        self.assertEqual(result, 1300)
+
+    def test_years_end3(self):
+        record = {
+            "entryTime": "2023-12-31T21:06:00+09:00",
+            "exitTime": "2024-01-01T20:44:00+09:00",
+        }
+        entry_time = datetime.fromisoformat(record["entryTime"])
+        exit_time = datetime.fromisoformat(record["exitTime"])
+        result = unit_price(self.parking_name, entry_time, exit_time)
+        self.assertEqual(result, 3900)
+
+    def test_years_end5(self):
+        record = {
+            "entryTime": "2024-01-02T21:30:00+09:00",
+            "exitTime": "2024-01-03T18:00:00+09:00",
+        }
+        entry_time = datetime.fromisoformat(record["entryTime"])
+        exit_time = datetime.fromisoformat(record["exitTime"])
+        result = unit_price(self.parking_name, entry_time, exit_time)
+        self.assertEqual(result, 3200)
+
 
 class IsTimeOverlapTest(unittest.TestCase):
     def test_time_overlap(self):

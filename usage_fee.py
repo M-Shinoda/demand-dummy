@@ -1,5 +1,6 @@
 import json
 from datetime import datetime, timedelta
+import math
 
 import pytz
 
@@ -72,22 +73,20 @@ def unit_price(parking_name, entry_time, exit_time):
             if start <= current_time < end:
                 if exit_time > end:
                     price = (
-                        int(
+                        math.ceil(
                             (end - current_time).total_seconds()
                             / 60
                             / pricing["intervalMin"]
-                            + 1
                         )
                         * pricing["additionalPrice"]
                     )
                     current_time = end
                 else:
                     price = (
-                        int(
+                        math.ceil(
                             (exit_time - current_time).total_seconds()
                             / 60
                             / pricing["intervalMin"]
-                            + 1
                         )
                         * pricing["additionalPrice"]
                     )
