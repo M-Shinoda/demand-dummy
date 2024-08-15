@@ -7,6 +7,7 @@ import pytz
 from util import (
     calc_usage_rate,
     generate_entry_time,
+    is_alltime_open,
     parking_capacity,
     parking_category,
     parking_close_time,
@@ -45,6 +46,7 @@ def generate_parking_records(parking_name, date_str):
                 continue
         else:
             print(current_datetime)
+            pass
         # TODO: ここまで
 
         # replace(minute=0)は営業開始が30分の場合があるため、rateのリストで見つからないので3minを0に設定
@@ -70,6 +72,19 @@ def generate_parking_records(parking_name, date_str):
                     )
                 )
             )
+
+            close_time = parking_close_time(parking_name)
+            close_datetime = datetime.combine(current_date.date(), close_time)
+            close_datetime = timezone.localize(close_datetime)
+            # 条件を確認して差分を取得
+            if not is_alltime_open(parking_name) and exit_time >= close_datetime:
+                difference = exit_time - close_datetime
+                exit_time += timedelta(days=1)
+                exit_time = datetime.combine(
+                    exit_time.date(), parking_open_time(parking_name)
+                )
+                exit_time += difference
+                exit_time = timezone.localize(exit_time)
 
             records.append(
                 {
