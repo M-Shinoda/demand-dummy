@@ -79,7 +79,11 @@ def generate_parking_records(parking_name, date_str):
             # 条件を確認して差分を取得
             if not is_alltime_open(parking_name) and exit_time >= close_datetime:
                 difference = exit_time - close_datetime
-                exit_time += timedelta(days=1)
+                # 駐車場が閉まる時間を超えていた場合、翌日の開始時間+残りの差分をにexit_time設定
+                if not (
+                    exit_time.date() - entry_time.date() >= timedelta(days=1)
+                ):  # exit_timeがすでに翌日の場合はそのまま
+                    exit_time += timedelta(days=1)
                 exit_time = datetime.combine(
                     exit_time.date(), parking_open_time(parking_name)
                 )
