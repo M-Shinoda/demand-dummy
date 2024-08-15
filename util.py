@@ -1,4 +1,5 @@
 from datetime import datetime, time, timedelta
+from dateutil.relativedelta import relativedelta
 import json
 import random
 import pandas as pd
@@ -64,6 +65,26 @@ def weather_data(datetime: datetime) -> pd.DataFrame:
     return weather_data_df
 
 
+def event_rate(datetime: datetime) -> float:
+    datetime += relativedelta(
+        years=1
+    )  # TODO: 今年を模倣するためダミーは一年前でもイベントは今年を使うため一年足してずらす
+    df = pd.read_json("source/eventData.json")
+    df["startDateTime"] = pd.to_datetime(df["startDateTime"])
+    df["endDateTime"] = pd.to_datetime(df["endDateTime"])
+
+    event_data_df = df[
+        (df["startDateTime"] <= datetime) & (datetime <= df["endDateTime"])
+    ]
+
+    if len(event_data_df) > 1:
+        raise ValueError("Event Over length")
+    if len(event_data_df) == 0:
+        return 0
+
+    return event_data_df["rate"].iloc[0]
+
+
 def get_day_of_week(date):
     weekdays = [
         "Monday",
@@ -106,18 +127,27 @@ def datetime_average_usage_rate(datetime: datetime, parking_name: str):
 
 def calc_usage_rate(datetime: datetime, parking_name: str):
     """
-    時間帯の平均利用率の計算
+    時間帯の平均利用率の計算(平均利用率 + 天候データ + イベントデータ)
     """
+    # 平均利用率の取得
     average_usage_rate = datetime_average_usage_rate(datetime, parking_name)
 
+    # 天候による変動率(%)の取得
     weather_data_df = weather_data(datetime)
+    weather_rate = int(weather_data_df["WeatherScale"].iloc[0])
 
-    average_usage_rate += int(weather_data_df["WeatherScale"].iloc[0])
+    # イベントによる変動率(%)の取得
+    event_rate_data = event_rate(datetime)
+
+    average_usage_rate += weather_rate + event_rate_data
 
     if average_usage_rate < 0:
         # 念の為
-        print("Usage rate is negative")
-        average_usage_rate = 1
+        print(f"Usage rate is negative: {datetime}")
+        print(f"average rate: {average_usage_rate}")
+        print(f"weather rate: {weather_rate}")
+        print(f"event rate: {event_rate_data}")
+        average_usage_rate = 1  # 最終的な平均利用率が0にならないようにする
 
     return average_usage_rate
 
