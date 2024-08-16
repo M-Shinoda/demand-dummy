@@ -6,13 +6,7 @@ import pytz
 
 from util import get_day_of_week
 
-parking_name = "中央駐車場"
 timezone = pytz.timezone("Asia/Tokyo")
-
-
-# JSONファイルを読み込み
-with open(f"result/{parking_name}.json", "r") as f:
-    usage_data = json.load(f)
 
 
 def get_pricing_type(datetime):
@@ -101,7 +95,11 @@ def unit_price(parking_name, entry_time, exit_time):
     return total_price
 
 
-if __name__ == "__main__":
+def calc_usage_rate(parking_name):
+    # JSONファイルを読み込み
+    with open(f"result/{parking_name}.json", "r") as f:
+        usage_data = json.load(f)
+
     # 各車両の利用料金を計算
     results = []
     for record in usage_data["records"]:
@@ -125,3 +123,8 @@ if __name__ == "__main__":
 
     with open(f"result/{parking_name}-price.json", "w") as f:
         json.dump(results, f, indent=4)
+
+
+if __name__ == "__main__":
+    parking_name = "南部駐車場"
+    calc_usage_rate(parking_name)
