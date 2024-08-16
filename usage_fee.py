@@ -33,6 +33,12 @@ def pricing_at_entry(current_time, pricing):
             f'{next_daty.strftime("%Y-%m-%d")} {pricing["end"]}',
             "%Y-%m-%d %H:%M:%S",
         )
+        if section_start_datetime > current_time:
+            section_start_datetime += timedelta(days=-1)
+            section_end_datetime += timedelta(days=-1)
+            print(section_start_datetime)
+            print(section_end_datetime)
+
     else:
         section_end_datetime = datetime.strptime(
             f'{current_time.strftime("%Y-%m-%d")} {pricing["end"]}',
@@ -103,6 +109,7 @@ def calc_usage_rate(parking_name):
     # 各車両の利用料金を計算
     results = []
     for record in usage_data["records"]:
+        print(record)
         entry_time = datetime.fromisoformat(record["entryTime"])
         exit_time = datetime.fromisoformat(record["exitTime"])
         price = unit_price(parking_name, entry_time, exit_time)
@@ -126,5 +133,6 @@ def calc_usage_rate(parking_name):
 
 
 if __name__ == "__main__":
+    # parking_name = "中央駐車場"
     parking_name = "南部駐車場"
     calc_usage_rate(parking_name)
