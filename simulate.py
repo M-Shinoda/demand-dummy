@@ -31,23 +31,29 @@ def generate_parking_records(parking_name, date_str):
     for i in range(24):
         current_datetime = current_date + timedelta(hours=i)
 
-        # TODO:
-        # 　営業時間内か判定(1時間ごと)
-        if current_datetime.time() < parking_open_time(
-            parking_name
-        ) or current_datetime.time() >= parking_close_time(parking_name):
-            # 30分追加して30分後の時間には営業しているか判定
-            add_half_hour_current_datetime = current_datetime + timedelta(minutes=30)
-            if add_half_hour_current_datetime.time() == parking_open_time(parking_name):
-                current_datetime = add_half_hour_current_datetime
-                # print(f"{current_datetime}")
+        opne_time = parking_open_time(parking_name)
+        close_time = parking_close_time(parking_name)
+        if not is_alltime_open(parking_name):  # 24時間営業で無い場合
+            # TODO:
+            # 　営業時間内か判定(1時間ごと)
+            if (
+                current_datetime.time() < opne_time
+                or current_datetime.time() >= close_time
+            ):
+                # 30分追加して30分後の時間には営業しているか判定
+                add_half_hour_current_datetime = current_datetime + timedelta(
+                    minutes=30
+                )
+                if add_half_hour_current_datetime.time() == opne_time:
+                    current_datetime = add_half_hour_current_datetime
+                    # print(f"{current_datetime}")
+                else:
+                    # print(f"{current_datetime}: out of time")
+                    continue
             else:
-                # print(f"{current_datetime}: out of time")
-                continue
-        else:
-            print(current_datetime)
-            pass
-        # TODO: ここまで
+                print(current_datetime)
+                pass
+            # TODO: ここまで
 
         # replace(minute=0)は営業開始が30分の場合があるため、rateのリストで見つからないので3minを0に設定
         usage_rate = calc_usage_rate(current_datetime.replace(minute=0), parking_name)
