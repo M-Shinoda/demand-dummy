@@ -134,5 +134,8 @@ def calc_usage_rate(parking_name):
 
 if __name__ == "__main__":
     # parking_name = "中央駐車場"
-    parking_name = "南部駐車場"
+    # parking_name = "南部駐車場"
+    parking_name = "美術館地下駐車場"
+    # parking_name = "瓦町駅地下駐車場"
+
     calc_usage_rate(parking_name)
