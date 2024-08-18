@@ -24,14 +24,21 @@ def total_fee(parking_name):
 
     h25_total = h25_total_by_paking_name[parking_name]
 
-    print(f"H25 Total : {h25_total}")
-    print(f"Total     : {total_price}")
-    print(f"Match Rate: {total_price / h25_total}")
-    print(f"Max       : {max_fee}")
-    print(f"Min       : {min_fee}")
-    print(f"Unique    : {unique_price}")
+    print(parking_name)
+    print(f"H25 Total  : {h25_total}")
+    print(f"Total      : {total_price}")
+    print(f"Match Rate : {total_price / h25_total}")
+    print(f"Max        : {max_fee}")
+    print(f"Min        : {min_fee}")
+    print(f"Unique     : {unique_price}")
+    print(f"Count      : {len(data)}")
+    print(f"Avg Fee    : {total_price/len(data)}")
 
 
 if __name__ == "__main__":
-    parking_name = "中央駐車場"
+    # parking_name = "中央駐車場"
+    # parking_name = "南部駐車場"
+    parking_name = "美術館地下駐車場"
+    # parking_name = "瓦町駅地下駐車場"
+
     total_fee(parking_name)
