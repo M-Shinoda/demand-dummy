@@ -182,8 +182,7 @@ def datetime_diff_min(datetime1, datetime2):
 
 
 def generate_entry_time(current_datetime: datetime):
-    # replace(minute=0)は営業開始が30分の場合があるため、次の時間帯を指定できるようにminを0に設定
-    entry_limit_time = current_datetime.replace(minute=0) + timedelta(hours=1)
+    entry_limit_time = current_datetime + timedelta(minutes=30)
     entry_time_range = datetime_diff_min(current_datetime, entry_limit_time)
     entry_time = current_datetime + timedelta(
         minutes=int(random.uniform(0, entry_time_range))
