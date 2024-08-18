@@ -46,6 +46,8 @@
             "description": "最大料金 全日 18:00～翌8:00 ¥800"
         }
     ],
+    "averageUseHour": 0.4,
+    "sigma": 5,
     "averageUsageRateWeekday": [
         {
             "time": "00:00:00",

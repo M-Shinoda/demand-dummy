@@ -46,6 +46,8 @@
             "description": "18:00 ～ 翌日8:00まで 最大 800円"
         }
     ],
+    "averageUseHour": 2.0,
+    "sigma": 15,
     "averageUsageRateWeekday": [
         {
             "time": "00:00:00",

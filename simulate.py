@@ -8,6 +8,8 @@ from util import (
     calc_usage_rate,
     generate_entry_time,
     is_alltime_open,
+    parking_average_usage_hour,
+    parking_average_usage_hour_sigma,
     parking_capacity,
     parking_category,
     parking_close_time,
@@ -15,10 +17,6 @@ from util import (
     usage_car_count,
     usage_data,
 )
-
-
-category_by_usage_average_hour = {"working": 1, "entertainment": 3, "both": 2}
-category_usage_average_min_sigma = 15
 
 
 def generate_parking_records(parking_name, date_str):
@@ -59,13 +57,14 @@ def generate_parking_records(parking_name, date_str):
         # 車両の入庫と滞在時間の設定
         for _ in range(incoming_cars):
             entry_time = generate_entry_time(current_datetime)
-            category_usage_average_hour = category_by_usage_average_hour[
-                parking_category(parking_name)
-            ]
+            usage_average_hour = parking_average_usage_hour(parking_name)
+            category_usage_average_min_sigma = parking_average_usage_hour_sigma(
+                parking_name
+            )
             exit_time = entry_time + timedelta(
                 minutes=int(
                     random.gauss(
-                        category_usage_average_hour * 60,
+                        usage_average_hour * 60,
                         category_usage_average_min_sigma,
                     )
                 )

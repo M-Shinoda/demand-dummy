@@ -50,6 +50,16 @@ def parking_category(parking_name: str) -> str:
         return json.load(f)["category"]
 
 
+def parking_average_usage_hour(parking_name: str) -> str:
+    with open(f"parkingLot/{parking_name}.json") as f:
+        return json.load(f)["averageUseHour"]
+
+
+def parking_average_usage_hour_sigma(parking_name: str) -> str:
+    with open(f"parkingLot/{parking_name}.json") as f:
+        return json.load(f)["sigma"]
+
+
 # def filtered_weather_data(datetime: datetime) -> pd.DataFrame:
 #     df = pd.read_csv("source/weatherData.csv")
 #     df["DateTime"] = pd.to_datetime(df["DateTime"])
