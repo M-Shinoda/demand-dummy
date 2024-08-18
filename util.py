@@ -168,6 +168,14 @@ def usage_data(parking_name: str):
 
 def usage_car_count(records, datetime: datetime):
     count = 0
+    # 全レコードから3日前から3日後のレコードを抽出
+    records = filter(
+        lambda record: datetime.fromisoformat(record["entryTime"]).date()
+        >= (datetime - timedelta(days=3)).date()
+        and datetime.fromisoformat(record["entryTime"]).date()
+        <= (datetime + timedelta(days=3)).date(),
+        records,
+    )
     for record in records:
         entry_time = datetime.fromisoformat(record["entryTime"])
         exit_time = datetime.fromisoformat(record["exitTime"])
