@@ -26,6 +26,8 @@
             "description": "30分ごと 100円(普通)"
         }
     ],
+    "averageUseHour": 2,
+    "sigma": 15,
     "averageUsageRateWeekday": [
         {
             "time": "00:00:00",

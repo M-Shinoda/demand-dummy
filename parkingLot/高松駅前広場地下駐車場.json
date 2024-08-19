@@ -1,53 +1,16 @@
 {
     "parkingLotId": "2dd99000-05d9-5d0d-3e83-532f90886b8b",
-    "parkingLotName": "瓦町駅地下駐車場",
-    "address": "香川県高松市常磐町1丁目3番地1",
-    "logitude": 134.05174584572447,
-    "latitude": 34.34196245110209,
-    "capacity": 448,
+    "parkingLotName": "高松駅前広場地下駐車場",
+    "address": "香川県高松市浜ノ町1-17",
+    "logitude": 134.04732,
+    "latitude": 34.35096,
+    "capacity": 395,
     "category": "both",
-    "openTime": "07:30:00",
-    "closeTime": "22:00:00",
-    "averageUseHour": 1.25,
+    "openTime": "06:30:00",
+    "closeTime": "23:59:59",
+    "averageUseHour": 3,
     "sigma": 15,
-    "pricingModel": [
-        {
-            "type": "holiday",
-            "start": "07:30:00",
-            "end": "18:00:00",
-            "intervalMin": 25,
-            "additionalPrice": 100,
-            "fixedPrice": 1200,
-            "description": "7:30 ～ 18:00まで 最大 1,200円"
-        },
-        {
-            "type": "holiday",
-            "start": "18:00:00",
-            "end": "08:00:00",
-            "intervalMin": 25,
-            "additionalPrice": 100,
-            "fixedPrice": 800,
-            "description": "18:00 ～ 翌日8:00まで 最大 800円"
-        },
-        {
-            "type": "weekday",
-            "start": "07:30:00",
-            "end": "18:00:00",
-            "intervalMin": 25,
-            "additionalPrice": 100,
-            "fixedPrice": 1200,
-            "description": "7:30 ～ 18:00まで 最大 1,200円"
-        },
-        {
-            "type": "weekday",
-            "start": "18:00:00",
-            "end": "08:00:00",
-            "intervalMin": 25,
-            "additionalPrice": 100,
-            "fixedPrice": 800,
-            "description": "18:00 ～ 翌日8:00まで 最大 800円"
-        }
-    ],
+    "pricingModel": [],
     "averageUsageRateWeekday": [
         {
             "time": "00:00:00",
@@ -79,19 +42,19 @@
         },
         {
             "time": "07:00:00",
-            "rate": 3
+            "rate": 4
         },
         {
             "time": "08:00:00",
-            "rate": 12
+            "rate": 6
         },
         {
             "time": "09:00:00",
-            "rate": 14
+            "rate": 9
         },
         {
             "time": "10:00:00",
-            "rate": 16
+            "rate": 13
         },
         {
             "time": "11:00:00",
@@ -99,43 +62,43 @@
         },
         {
             "time": "12:00:00",
-            "rate": 23
-        },
-        {
-            "time": "13:00:00",
-            "rate": 29
-        },
-        {
-            "time": "14:00:00",
-            "rate": 28
-        },
-        {
-            "time": "15:00:00",
             "rate": 27
         },
         {
+            "time": "13:00:00",
+            "rate": 38
+        },
+        {
+            "time": "14:00:00",
+            "rate": 54
+        },
+        {
+            "time": "15:00:00",
+            "rate": 35
+        },
+        {
             "time": "16:00:00",
-            "rate": 21
+            "rate": 23
         },
         {
             "time": "17:00:00",
-            "rate": 17
+            "rate": 15
         },
         {
             "time": "18:00:00",
-            "rate": 14
+            "rate": 10
         },
         {
             "time": "19:00:00",
-            "rate": 12
+            "rate": 6
         },
         {
             "time": "20:00:00",
-            "rate": 11
+            "rate": 4
         },
         {
             "time": "21:00:00",
-            "rate": 8
+            "rate": 3
         },
         {
             "time": "22:00:00",
@@ -177,59 +140,59 @@
         },
         {
             "time": "07:00:00",
-            "rate": 3
+            "rate": 5
         },
         {
             "time": "08:00:00",
-            "rate": 3
+            "rate": 7
         },
         {
             "time": "09:00:00",
-            "rate": 28
+            "rate": 10
         },
         {
             "time": "10:00:00",
-            "rate": 32
+            "rate": 14
         },
         {
             "time": "11:00:00",
-            "rate": 39
+            "rate": 21
         },
         {
             "time": "12:00:00",
-            "rate": 48
+            "rate": 29
         },
         {
             "time": "13:00:00",
-            "rate": 62
+            "rate": 42
         },
         {
             "time": "14:00:00",
-            "rate": 64
+            "rate": 60
         },
         {
             "time": "15:00:00",
-            "rate": 59
+            "rate": 39
         },
         {
             "time": "16:00:00",
-            "rate": 44
+            "rate": 25
         },
         {
             "time": "17:00:00",
-            "rate": 35
+            "rate": 16
         },
         {
             "time": "18:00:00",
-            "rate": 28
+            "rate": 11
         },
         {
             "time": "19:00:00",
-            "rate": 3
+            "rate": 7
         },
         {
             "time": "20:00:00",
-            "rate": 3
+            "rate": 5
         },
         {
             "time": "21:00:00",

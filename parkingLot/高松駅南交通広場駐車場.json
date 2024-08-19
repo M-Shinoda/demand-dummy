@@ -26,6 +26,8 @@
             "description": "最初の20分無料以後150円/30分"
         }
     ],
+    "averageUseHour": 2,
+    "sigma": 15,
     "averageUsageRateWeekday": [
         {
             "time": "00:00:00",
